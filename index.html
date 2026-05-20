@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Belajar Kelas 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loginPage" class="login-container">
+        <h2>Yuk Belajar! 🎒</h2>
+        <p>Masuk dulu menggunakan nama kamu ya</p>
+        
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="input-group">
+                <label for="username">Nama Kamu</label>
+                <input type="text" id="username" placeholder="Ketik namamu di sini..." required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="login-btn">Mulai Belajar ✨</button>
+        </form>
+    </div>
+
+    <div id="dashboardPage" class="dashboard-wrapper hidden">
+        
+        <audio id="audioPlayer"></audio>
+        
+        <aside class="sidebar">
+            <div>
+                <div class="brand-title">Siswa<span>Pintar</span></div>
+                <ul class="nav-menu">
+                    <li class="nav-item active" onclick="switchTab('beranda')">Semangat UTS</li>
+                    <li class="nav-item" onclick="switchTab('menuju9')">Menuju Kelas 9</li>
+                    <li class="nav-item" onclick="switchTab('musik')">Musik Santai</li>
+                </ul>
+            </div>
+            <div class="logout-btn" onclick="handleLogout()">Keluar Aplikasi</div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section id="tab-beranda" class="page-section">
+                <div class="welcome-header">
+                    <h1>Hai, <span id="userDisplay">Siswa</span>! 👋</h1>
+                    <p>Selamat datang di tempat persiapan UTS Semester 2 kamu.</p>
+                </div>
+
+                <div class="motivation-card">
+                    <h2>UTS Semester 2 Sudah di Depan Mata! 📝</h2>
+                    <p>
+                        "Perjalanan kamu di kelas 8 tinggal sedikit lagi! UTS Semester 2 ini adalah pembuktian dari semua hal keren yang sudah kamu pelajari. Jangan takut kalau merasa materinya makin menantang, itu tandanya otakmu sedang tumbuh jadi lebih cerdas. Kurangi <strong>scrolling</strong> medsos atau main game sebentar saja, fokus pelajari catatanmu. Ingat, usaha yang kamu lakukan minggu ini akan bikin kamu tersenyum bangga saat melihat nilai raport nanti. Kamu pasti bisa melewati ini!"
+                    </p>
+                    <span class="quote-author">— Belajar hari ini, panen sukses esok hari.</span>
+                </div>
+
+                <div class="grid-stats">
+                    <div class="stat-box">
+                        <h3>Fokus Belajar</h3>
+                        <p>Semua Mapel</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Target Nilai</h3>
+                        <p>Di Atas KKM</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Status</h3>
+                        <p>Siap 100%</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-menuju9" class="page-section hidden">
+                <div class="welcome-header">
+                    <h1>Persiapan Menuju Kelas 9 🚀</h1>
+                    <p>Pesan penting sebelum kamu resmi jadi kakak kelas paling senior di SMP.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Surat Kecil untuk Calon Kakak Kelas 9:</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light);">
+                        Nggak terasa ya, sebentar lagi statusmu bukan lagi anak tengah di sekolah, tapi bakal jadi <strong>anak kelas 9</strong>. Kelas 9 itu seru banget, tapi juga butuh tanggung jawab yang lebih besar. Kamu bakal jadi contoh buat adik-adik kelas 7 dan 8. 
+                        <br><br>
+                        Sebelum kamu menyentuh bangku kelas 9, tanamkan ini di pikiranmu: 
+                         <strong>"Aku bukan anak kecil lagi. Di kelas 9 nanti, aku akan berjuang demi sekolah lanjutan (SMA/SMK) impianku. Aku akan memperbaiki cara belajarku mulai dari sekarang, menghargai setiap prosesnya, dan tidak akan menyia-nyeakan waktu."</strong> <br><br>
+                        Selesaikan kelas 8 ini dengan akhir yang manis (<strong>happy ending</strong>), biar pas masuk kelas 9 nanti, mental kamu sudah siap jadi pemenang!
+                    </p>
+                    
+                    <h3 style="margin-top: 2rem; color: var(--sea-blue);">Hal yang Harus Dipersiapkan dari Sekarang:</h3>
+                    <ul>
+                        <li><strong>Rapikan Catatan Kelas 8:</strong> Rumus-rumus penting matematika dan pelajaran lainnya di kelas 8 sering keluar lagi di ujian kelas 9 nanti.</li>
+                        <li><strong>Bangun Kebiasaan Membaca:</strong> Kelas 9 bakal banyak materi bacaan yang panjang. Latih fokusmu dari sekarang.</li>
+                        <li><strong>Tentukan Target:</strong> Mulai cari tahu SMA atau SMK mana yang pengen kamu tuju nanti setelah lulus.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="tab-musik" class="page-section hidden">
+                <div class="welcome-header">
+                    <h1>Musik Pendamping Belajar 🎧</h1>
+                    <p>Putar lagu kesukaanmu biar belajar UTS-nya nggak ngebosenin dan tetap rileks.</p>
+                </div>
+
+                <div class="music-grid">
+                    <div class="playlist-container">
+                        <div class="playlist-title">Playlist Teman Belajar</div>
+                        <div class="track-list">
+                            <div class="track-item" onclick="playSong('Kasih Putih', 'Glenn Fredly', 'song1.mp3', 'kp.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Kasih Putih</span>
+                                    <span class="track-artist">Glenn Fredly</span>
+                                </div>
+                                <span class="track-status">03:54</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Rahasia Hati', 'Nidji', 'song2.mp3', 'rh.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Rahasia Hati</span>
+                                    <span class="track-artist">Nidji</span>
+                                </div>
+                                <span class="track-status">04:10</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Who Knows', 'Daniel Caesar', 'song3.mp3', 'wk.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Who Knows</span>
+                                    <span class="track-artist">Daniel Caesar</span>
+                                </div>
+                                <span class="track-status">03:46</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Paths', 'Niki', 'song4.mp3', 'p.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Paths</span>
+                                    <span class="track-artist">Niki</span>
+                                </div>
+                                <span class="track-status">03:09</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('About You', 'The 1975', 'song5.mp3', 'ay.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">About You</span>
+                                    <span class="track-artist">The 1975</span>
+                                </div>
+                                <span class="track-status">05:26</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Gerbang Kudus-Mu', 'Army of God Worship', 'song6.mp3', 'gk.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Gerbang Kudus-Mu</span>
+                                    <span class="track-artist">Army of God Worship</span>
+                                </div>
+                                <span class="track-status">04:03</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Best Part', 'H.E.R & Daniel Caesar', 'song7.mp3', 'bp.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Best Part</span>
+                                    <span class="track-artist">H.E.R & Daniel Caesar</span>
+                                </div>
+                                <span class="track-status">03:29</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Nyalakan ApiMu', 'GMS Live', 'song8.mp3', 'na.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Nyalakan ApiMu</span>
+                                    <span class="track-artist">GMS Live</span>
+                                </div>
+                                <span class="track-status">04:56</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Jatuh Suka', 'Tulus', 'song9.mp3', 'js.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Jatuh Suka</span>
+                                    <span class="track-artist">Tulus</span>
+                                </div>
+                                <span class="track-status">03:57</span>
+                            </div>
+                            <div class="track-item" onclick="playSong('Rindu Sendiri', 'Iqbal Ramadhan', 'song10.mp3', 'rs.jpg', event)">
+                                <div class="track-info">
+                                    <span class="track-name">Rindu Sendiri</span>
+                                    <span class="track-artist">Iqbal Ramadhan</span>
+                                </div>
+                                <span class="track-status">03:47</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="player-widget">
+                        <img src="d.png" class="album-art" id="albumArt" alt="Album Art">
+                        
+                        <h3 id="currentTitle">Belum Diputar</h3>
+                        <p id="currentArtist">Pilih lagu terlebih dahulu</p>
+                        
+                        <div class="progress-bar-container" onclick="seekAudio(event)">
+                            <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+                        </div>
+
+                        <div class="player-controls">
+                            <button class="control-btn" onclick="prevSong()">⏮</button>
+                            <button class="control-btn play-pause-btn" id="playPauseBtn" onclick="togglePlay()">▶</button>
+                            <button class="control-btn" onclick="nextSong()">⏭</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
